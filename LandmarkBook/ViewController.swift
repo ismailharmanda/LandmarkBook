@@ -25,12 +25,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 30
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "test"
+        var content = cell.defaultContentConfiguration()
+        content.text = "TableView"
+//        content.secondaryText = "Test"
+        cell.contentConfiguration = content
+        
         return cell
     }
 
