@@ -9,7 +9,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+    var landmarkNames = [String]()
+    var  landmarkImages = [UIImage]()
     
     
     
@@ -23,7 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        var landmarkNames = [String]()
+        
         landmarkNames.append("Colesseum")
         landmarkNames.append("Great Wall")
         landmarkNames.append("Kremlin")
@@ -31,23 +32,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         landmarkNames.append("Taj Mahal")
         landmarkNames.append("Potbelly Hill")
         
-        var  landmarkImages = [UIImage]()
+        
         landmarkImages.append(UIImage(imageLiteralResourceName: "collesium"))
-        landmarkImages.append(UIImage(imageLiteralResourceName: "gobeklitepe"))
         landmarkImages.append(UIImage(imageLiteralResourceName: "greatwall"))
         landmarkImages.append(UIImage(imageLiteralResourceName: "kremlin"))
         landmarkImages.append(UIImage(imageLiteralResourceName: "stonehenge"))
         landmarkImages.append(UIImage(imageLiteralResourceName: "tajmahal"))
+        landmarkImages.append(UIImage(imageLiteralResourceName: "gobeklitepe"))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return landmarkNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var content = cell.defaultContentConfiguration()
-        content.text = "TableView"
+        content.text = landmarkNames[indexPath.row]
+//        content.image = landmarkImages[indexPath.row]
 //        content.secondaryText = "Test"
         cell.contentConfiguration = content
         
